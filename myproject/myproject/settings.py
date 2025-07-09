@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-fo3vo8xqy^39*!2gz(0=8-vgl4%%mt98oc!$z$*qf@)gnnid11'
+SECRET_KEY = config('django-insecure-fo3vo8xqy^39*!2gz(0=8-vgl4%%mt98oc!$z$*qf@)gnnid11')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.onrender.com']
 
 
 # Application definition
@@ -74,7 +76,7 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'crud-app',
@@ -83,6 +85,10 @@ DATABASES = {
         'HOST': 'localhost',  # or your DB host
         'PORT': '5432',
     }
+}'''
+
+DATABASES = {
+    'default': dj_database_url.config(default='postgres://postgres:10010010@localhost:5432/crud-app')
 }
 
 
