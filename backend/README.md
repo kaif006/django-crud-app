@@ -94,3 +94,11 @@ DATABASE_URL=postgres://username:password@host:port/database
 - Responsive design
 - PostgreSQL database backend
 - Production-ready configuration 
+
+## Frontend Integration
+
+A React frontend is included in the `../frontend/` directory.
+
+- To start the frontend, follow the instructions in `frontend/README.md`.
+- The frontend expects the backend to be running at `http://localhost:8000`.
+- Make sure CORS is enabled if accessing from a different port. 

@@ -1,0 +1,12 @@
+{% extends "tasks/layout.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Logged Out</h2>
+    <p>You have been successfully logged out.</p>
+    <form action="{% url 'logout' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-danger btn-sm">Logout</button>
+    </form>
+</div>
+{% endblock %}
